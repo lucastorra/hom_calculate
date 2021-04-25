@@ -14,12 +14,12 @@
 */
 void calculate(int nOption) {
    
-  	int nUserValue;
-  	int nBinary[MAX];
+  	unsigned int nUserValue;
+  	unsigned int nBinary[MAX];
 	int i = 0;
 	int j;
-	int nDecimal;
-	int nAuxBinary;
+	unsigned int nDecimal;
+	unsigned int nAuxBinary;
     
     switch (nOption)
 	{ 
@@ -49,15 +49,13 @@ void calculate(int nOption) {
 	
 	   /*BIN to DEC*/
 	   case 2:
-	     	printf("Informe um valor BINÁRIO (SOMENTE 0 OU 1):");
-			scanf("%d", &nUserValue); 
-			
-			/*fazer alguma validação para não permitir numero diferente de 0 e 1*/
-     		/*USAR VARIAVEL MAIOR PARA RECUPERAR VALOR, POIS nUserValue SÓ RECEBE ATÉ INT_MAX*/      		
-			
+	   		
+			printf("Informe um valor BINÁRIO (SOMENTE 0 OU 1):");
+			scanf("%d", &nUserValue);    
+				
 			nDecimal   = 0;
     		nBinary[1] = nUserValue;
-    		nAuxBinary       = 1;
+    		nAuxBinary = 1;
     		
 			while(nBinary[1] > 0) {
      		   nDecimal   += nBinary[1] % 10 * nAuxBinary;
@@ -65,7 +63,7 @@ void calculate(int nOption) {
         	   nAuxBinary = nAuxBinary * 2;
 		    }
 			
-			printf("\nO BINARIO %d em BINÁRIO é: %d",nUserValue,nDecimal);	   
+			printf("\nO BINARIO %d em DECIMAL é: %d",nUserValue,nDecimal);	   
 	   break;
 
        /*DEC to HEX*/
@@ -88,9 +86,8 @@ void calculate(int nOption) {
 	     printf("\n\n Opcao indisponível, por favor escolha uma opcao válida no menu.\n");	     
 	}
 	
-    /// retirar isso
     getch();
-    //system("PAUSE");
+    
 }
 
 int menu() {
